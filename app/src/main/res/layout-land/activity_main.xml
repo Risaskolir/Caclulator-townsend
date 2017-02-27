@@ -3,160 +3,147 @@
     android:id="@+id/GridLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:columnCount="4"
-    android:rowCount="7"
+    android:columnCount="5"
+    android:rowCount="5"
     android:layout_centerInParent="true"
     android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingEnd="@dimen/activity_horizontal_margin"
     android:layout_gravity="top|center"
     >
     <TextView
-        android:layout_width="352dp"
+        android:layout_width="562dp"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="4"
+        android:layout_columnSpan="5"
         android:id="@+id/prevAnsTextView"
         android:textSize="20sp"
         android:textColor="@color/lightGray"
-        android:gravity="end|center"
-        />
+        android:gravity="end|center" />
     <TextView
-        android:layout_width="352dp"
+        android:layout_width="562dp"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="4"
+        android:layout_columnSpan="5"
         android:id="@+id/I_OTextView"
         android:textSize="30sp"
         android:textColor="@color/colorPrimary"
-        android:gravity="end|center"
-        />
-    <Button
-        android:text="@string/clearAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clearAllButton"
-        android:textSize="25sp" />
-
-    <Button
-        android:text="@string/clearLast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clearLastButton"
-        android:textSize="25sp" />
-
-    <Button
-        android:text="@string/plusOrMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/plusMinusButton"
-        android:textSize="25sp" />
-
-    <Button
-        android:text="@string/divide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/divideButton"
-        android:textSize="25sp" />
-
+        android:gravity="end|center" />
     <Button
         android:text="@string/seven"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/sevenButton"
         android:textSize="25sp" />
 
     <Button
         android:text="@string/eight"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/eightButton"
         android:textSize="25sp" />
 
     <Button
         android:text="@string/nine"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/nineButton"
         android:textSize="25sp" />
-
     <Button
-        android:text="@string/multiply"
-        android:layout_width="wrap_content"
+        android:text="@string/add"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
-        android:id="@+id/multButton"
+        android:id="@+id/addButton"
         android:textSize="25sp" />
 
     <Button
+        android:text="@string/clearAll"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/clearAllButton"
+        android:textSize="25sp" />
+    <Button
         android:text="@string/four"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/fourButton"
         android:textSize="25sp" />
 
     <Button
         android:text="@string/five"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/fiveButton"
         android:textSize="25sp" />
 
     <Button
         android:text="@string/six"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/sixButton"
         android:textSize="25sp" />
 
     <Button
         android:text="@string/subtract"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/subtractButton"
         android:textSize="25sp" />
 
     <Button
+        android:text="@string/clearLast"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/clearLastButton"
+        android:textSize="25sp" />
+    <Button
         android:text="@string/one"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/oneButton"
         android:textSize="25sp" />
-
     <Button
         android:text="@string/two"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/twoButton"
         android:textSize="25sp" />
-
     <Button
         android:text="@string/three"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/threeButton"
         android:textSize="25sp" />
-
     <Button
-        android:text="@string/add"
-        android:layout_width="wrap_content"
+        android:text="@string/multiply"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
-        android:id="@+id/addButton"
+        android:id="@+id/multButton"
         android:textSize="25sp" />
-
     <Button
-        android:text="@string/decimal"
-        android:layout_width="wrap_content"
+        android:text="@string/divide"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
-        android:id="@+id/decimalButton"
+        android:id="@+id/divideButton"
         android:textSize="25sp" />
-
     <Button
         android:text="@string/zero"
-        android:layout_width="wrap_content"
+        android:layout_width="112dp"
         android:layout_height="wrap_content"
         android:id="@+id/zeroButton"
         android:textSize="25sp"/>
-
+    <Button
+        android:text="@string/decimal"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/decimalButton"
+        android:textSize="25sp" />
+    <Button
+        android:text="@string/plusOrMinus"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/plusMinusButton"
+        android:textSize="25sp" />
     <Button
         android:text="@string/equals"
-        android:layout_width="175dp"
+        android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:id="@+id/equalsButton"
         android:textSize="25sp"
