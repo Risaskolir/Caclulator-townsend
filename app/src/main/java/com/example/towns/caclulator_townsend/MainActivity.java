@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     private Double currentVal = 0.0;
 
     private boolean isInput = false;
-    private boolean calcDone = false;
 
     private String inputStr= "";
     private String operationStr="";
@@ -73,10 +72,9 @@ public class MainActivity extends AppCompatActivity {
         equalsButton = (Button) findViewById(R.id.equalsButton);
         plusMinusButton = (Button) findViewById(R.id.plusMinusButton);
 
-        if (!isInput)
-            ioTextView.setText(savedVal.toString());
-        else
-            ioTextView.setText(savedStr+operationStr+inputStr);
+
+
+        ioTextView.setText(savedStr+operationStr+inputStr);
 
 
         oneButton.setOnClickListener(new View.OnClickListener(){
@@ -145,6 +143,12 @@ public class MainActivity extends AppCompatActivity {
                 appendToNum('.');
             }
         });
+        plusMinusButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                switchPol();
+            }
+        });
         clearAllButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -191,7 +195,8 @@ public class MainActivity extends AppCompatActivity {
         equalsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                addOperand('=');
+                if(!savedStr.isEmpty() && !operationStr.isEmpty() && !inputStr.isEmpty())
+                    performCalc();
             }
         });
 
@@ -200,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
     //only allows one decimal point to be added, if more tha one is
     //attempted there will be no change to the string.
     public void appendToNum(char input){
+
         if(!isInput){
             isInput = true;
         }
@@ -238,40 +244,32 @@ public class MainActivity extends AppCompatActivity {
         }
         ioTextView.setText(savedStr+operationStr+inputStr);
     }
-
+    public void switchPol(){
+        if(!inputStr.startsWith("-")){
+            inputStr = "-" + inputStr;
+        }
+        else if(inputStr.startsWith("-")){
+            inputStr = inputStr.substring(1);
+        }
+        ioTextView.setText(savedStr+operationStr+inputStr);
+    }
     public void addOperand(char input){
-        if(isInput) {
-            if(!operationStr.isEmpty()){
-                performCalc();
-                calcDone = true;
-            }
-            if(input == '+'){
-                operationStr = "+";
-            }
-            else if(input =='-'){
-                operationStr = "-";
-            }
-            else if(input =='*'){
-                operationStr = "*";
-            }
-            else if(input =='/') {
-                operationStr = "/";
-            }
-            else if(input =='='){
-                //just runs the perform calc
-            }
-            if(!calcDone) {
+        if(savedStr.isEmpty()) {
+            if (isInput) {
+                if (input == '+') {
+                    operationStr = "+";
+                } else if (input == '-') {
+                    operationStr = "-";
+                } else if (input == '*') {
+                    operationStr = "*";
+                } else if (input == '/') {
+                    operationStr = "/";
+                }
                 savedStr = inputStr;
                 inputStr = "";
                 ioTextView.setText(savedStr + operationStr + inputStr);
-
+                isInput = false;
             }
-            if(calcDone) {
-                prevAnsTextView.setText(calcStr);
-                inputStr = "";
-            }
-            isInput = false;
-            calcDone = false;
         }
 
     }
@@ -296,6 +294,31 @@ public class MainActivity extends AppCompatActivity {
         calcStr = savedVal.toString();
         savedVal = 0.0;
         currentVal = 0.0;
+        prevAnsTextView.setText(calcStr);
+        ioTextView.setText(savedStr + operationStr + inputStr);
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("inputSave",inputStr);
+        outState.putString("savedSave",savedStr);
+        outState.putString("operationSave",operationStr);
+        outState.putString("calcSave",calcStr);
+        outState.putBoolean("isInputSave",isInput);
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        inputStr = savedInstanceState.getString("inputSave");
+        savedStr = savedInstanceState.getString("savedSave");
+        operationStr = savedInstanceState.getString("operationSave");
+        calcStr = savedInstanceState.getString("calcSave");
+        isInput = savedInstanceState.getBoolean("isInputSave");
+
+        prevAnsTextView.setText(calcStr);
+        ioTextView.setText(savedStr + operationStr + inputStr);
+    }
 }
